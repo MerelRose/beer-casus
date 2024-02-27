@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:900');
+
+text {
+  fill: #35322a;
+  filter: url('#money');
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: 70px;
+  font-weight: 500;
+}
+
+#companyName {
+  min-height: 100vh;
+  min-width: 600px;
+}
+
+
+.button {
+    position: relative;
+    font-family: 'Playfair Display', 'Georgia', serif;
+    color: #35322a;
+    font-size: 30px;
+    font-weight: 200;
+    text-decoration: none;
+    cursor: pointer;
+    width: 150px;
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    background-color: rgba(211, 211, 211, 0);
+    transition: all 0.1s ease-in-out;
+    outline: 0;
+}
+
+.button:hover {
+    background-color: rgba(211, 211, 211, 0);
+}
+
+button:active {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important; 
+}
+
+.glass {
+    border-color: rgba(0, 0, 0, 0.6);
+    border-image: none;
+    border-style: solid;
+    border-width: 0px;
+}
+
+.clear {
+    outline: 0;
+}
+
+button:hover.clear-a {
+    color: rgba(255, 255, 255, 0);
+    text-shadow: 0px 0px 2px rgba(100, 100, 95, 0.99), 0px 0px 4px rgba(235, 235, 235, 0.753);
+    border-color: rgba(255, 255, 255, 0.4);
+}

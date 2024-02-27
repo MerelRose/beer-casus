@@ -4,12 +4,12 @@
       $page = $_GET["page"];
   }
 ?>
-<html>
+<!DOCTYPE html>
     <head>
-        <title>We Like Beer</title>
+        <title>BierGram</title>
     </head>
     <body>
-            <? include("beer-nav.php"); ?>
+            <?php include("beer-nav.php"); ?>
         <div class="main">
             <?php include("pages/" .$page. ".html"); ?>
         </div>
