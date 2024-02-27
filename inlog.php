@@ -18,11 +18,11 @@ $loginResult = "";
 
 // Process the form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
+    $email = isset($_POST["email"]) ? $_POST["email"] : ""; // Updated to use email instead of username
     $password = $_POST["password"];
 
     // Perform a simple query (ensure to use prepared statements in production)
-    $sql = "SELECT * FROM users WHERE name = '$username' AND password = '$password'";
+    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -30,14 +30,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $loginResult = "Login successful!";
     } else {
         // Login failed, handle accordingly
-        $loginResult = "Invalid username or password";
+        $loginResult = "Invalid email or password";
     }
 }
 
 // Close the connection
 $conn->close();
 ?>
-
 
 
 <!DOCTYPE html>
@@ -48,34 +47,48 @@ $conn->close();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-
-<body>
     <style>
         body {
             overflow: hidden;
-            background-color: lightgrey;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
         }
-
+        .achterkantvlak{
+            overflow: hidden;
+            background-color: lightgrey;
+            opacity: 0.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            z-index: 1;
+            position: absolute;
+        }
         .bouwvlak {
-            height: 55vh;
-            width: 40vw;
+            height: 25vh;
+            width: 20vw;
             border-radius: 25px;
             background-color: rgb(94, 94, 94);
-            margin-top: 10vh;
-            margin-left: 30vw;
             text-align: center;
             padding-top: 5px;
+            z-index: 10;
         }
 
         .inlogvlak {
-            height: 50vh;
-            width: 38vw;
+            height: 22vh;
+            width: 18vw;
+            z-index: 10;
             border-radius: 25px;
             background-color: rgb(192, 190, 190);
             text-align: center;
             padding-top: 5px;
             margin: auto;
+
         }
 
         .login-result {
@@ -83,15 +96,16 @@ $conn->close();
             color: red;
         }
     </style>
-    </head>
+</head>
 
-    <body>
+<body>
+    <div class="achterkantvlak"> </div>
         <div class="bouwvlak">
             INLOGGEN!!!!!!!!!!!!!!!!!!!!
             <div class="inlogvlak">
                 <form method="post">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required />
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required />
                     <br>
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" required />
@@ -101,19 +115,13 @@ $conn->close();
                 <div class="login-result">
                     <?php
                     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                        if ($result->num_rows > 0) {
-                            // Login successful, redirect or perform other actions
-                            echo "Login successful!";
-                        } else {
-                            // Login failed, handle accordingly
-                            echo "Invalid username or password";
-                        }
+                        echo $loginResult;
                     }
                     ?>
                 </div>
             </div>
         </div>
-
-    </body>
+    
+</body>
 
 </html>
