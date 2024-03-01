@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="../styles/home.css">
     <style>
         /* Add CSS styles for the star rating */
         .bc-star-rating {
@@ -26,10 +26,10 @@
     </style>
 </head>
 <body>
-    <img src="img/beer-background.png" alt="" class="bc-background">
+    <img src="../img/beer-background.png" alt="" class="bc-background">
     <div class="bc-beer-container">
     <?php 
-        require_once("db_conn.php");
+        require_once("../db_conn.php");
 
         function generateUniqueId() {
             return uniqid('user_', true);
@@ -91,10 +91,10 @@
                 echo "<form method='post' action='".$_SERVER['PHP_SELF']."'>";
                 echo "<input type='hidden' name='beer_id' value='" . $row["id"] . "'>";
                 if (!hasLikedBeer($conn, $row["id"], $unique_id)) {
-                    include('partials/like-button.html');
+                    include('../partials/like-button.html');
                 } else {
                     echo "<p class='bc-like-msg'>You liked this beer!</p> <br>";
-                    include('partials/dislike-button.html');
+                    include('../partials/dislike-button.html');
                 }
                 echo "</form>";
                 echo "</div>";
