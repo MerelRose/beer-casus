@@ -51,50 +51,36 @@ $conn->close();
         body {
             background-image: url("img/beer-background.png");
             background-repeat: no-repeat;
-            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
             background-size: 100%;
             margin: 0;
-        }
-
-        #achterkantvlak {
-
-            background-position: center;
-            overflow: hidden;
-            opacity: 0.5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            width: 100%;
-            margin: 0;
             z-index: 1;
-            position: absolute;
         }
 
         .bouwvlak {
             height: 25vh;
             width: 20vw;
             border-radius: 25px;
-            background-color: rgb(rgb(255, 255, 97));
+            background-color: rgb(255, 255, 255);
             text-align: center;
             padding-top: 5px;
-            z-index: 10;
+            z-index: 2;
+            position: absolute;
         }
 
         .inlogvlak {
-            background-color: rgb(rgb(255, 255, 97));
-            height: 22vh;
-            width: 18vw;
-            z-index: 10;
+            background-color: rgb(255, 255, 97);
+            height: 23vh;
+            width: 20vw;
             border-radius: 25px;
             text-align: center;
             padding-top: 5px;
             margin: auto;
-
+            z-index: 3;
+            position: absolute;
         }
 
         .login-result {
@@ -105,7 +91,7 @@ $conn->close();
 </head>
 
 <body>
-    <div id="achterkantvlak"> </div>
+  
     <div class="bouwvlak">
         INLOGGEN
         <div class="inlogvlak">
