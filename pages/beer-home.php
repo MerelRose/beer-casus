@@ -32,18 +32,18 @@
             while($row = $result->fetch_assoc()) {
                 echo "<div class='bc-bier-kaart'>";
                 echo "<p class='bc-kaart-name'>" . $row["name"] . "</p>";
-                echo "<p class='bc-kaart-text' style='text-align: center; margin:0;'>" . $row["brewer"] . "</p>";
-                echo "<p>Type: " . $row["type"] . "</p>";
-                echo "<p>Yeast: " . $row["yeast"] . "</p>";
-                echo "<p>Percentage: " . $row["perc"]. "%</p>";
-                echo "<p>Prijs: " . $row["purchase_price"] . "</p>";
-                echo "<p>Likes: " . $row["like_count"] . "</p>";
+                echo "<p class='bc-kaart-text' style='margin:0;'>" . $row["brewer"] . "</p>";
+                echo "<p class='bc-kaart-text2'>Type: " . $row["type"] . "</p>";
+                echo "<p class='bc-kaart-text2'>Yeast: " . $row["yeast"] . "</p>";
+                echo "<p class='bc-kaart-text2'>Percentage: " . $row["perc"]. "%</p>";
+                echo "<p class='bc-kaart-text2'>Prijs: " . $row["purchase_price"] . "</p>";
+                echo "<p class='bc-kaart-likes'>Likes: " . $row["like_count"] . "</p>";
                 echo "<form method='post' action='".$_SERVER['PHP_SELF']."'>";
                 echo "<input type='hidden' name='beer_id' value='" . $row["id"] . "'>";
                 if (!hasLikedBeer($conn, $row["id"], $unique_id)) {
                     include('partials/like-button.html');
                 } else {
-                    echo "You liked this beer! <br>";
+                    echo "<p class='bc-like-msg'>You liked this beer!</p> <br>";
                     include('partials/dislike-button.html');
                 }
                 echo "</form>";
