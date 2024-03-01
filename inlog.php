@@ -49,15 +49,18 @@ $conn->close();
     <title>Document</title>
     <style>
         body {
+            background-image: url("img/beer-background.png");
+            background-repeat: no-repeat;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
+            background-size: 100%;
             margin: 0;
         }
         #achterkantvlak{
-            background-image: url("img/beer-background.png");
+           
             background-position: center;
             overflow: hidden;
             opacity: 0.5;
@@ -102,7 +105,7 @@ $conn->close();
 <body>
     <div id="achterkantvlak"> </div>
     <div class="bouwvlak">
-        INLOGGEN!!!!!!!!!!!!!!!!!!!!
+        INLOGGEN
         <div class="inlogvlak">
             <form method="post">
                 <label for="email">Email:</label>
