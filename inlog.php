@@ -91,7 +91,7 @@ $conn->close();
 </head>
 
 <body>
-  
+
     <div class="bouwvlak">
         INLOGGEN
         <div class="inlogvlak">
