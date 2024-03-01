@@ -49,46 +49,38 @@ $conn->close();
     <title>Document</title>
     <style>
         body {
-            overflow: hidden;
+            background-image: url("img/beer-background.png");
+            background-repeat: no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            margin: 0;
-        }
-        .achterkantvlak{
-            overflow: hidden;
-            background-color: lightgrey;
-            opacity: 0.5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            width: 100%;
+            background-size: 100%;
             margin: 0;
             z-index: 1;
-            position: absolute;
         }
+
         .bouwvlak {
             height: 25vh;
             width: 20vw;
             border-radius: 25px;
-            background-color: rgb(94, 94, 94);
+            background-color: rgb(255, 255, 255);
             text-align: center;
             padding-top: 5px;
-            z-index: 10;
+            z-index: 2;
+            position: absolute;
         }
 
         .inlogvlak {
-            height: 22vh;
-            width: 18vw;
-            z-index: 10;
+            background-color: rgb(255, 255, 97);
+            height: 23vh;
+            width: 20vw;
             border-radius: 25px;
-            background-color: rgb(192, 190, 190);
             text-align: center;
             padding-top: 5px;
             margin: auto;
-
+            z-index: 3;
+            position: absolute;
         }
 
         .login-result {
@@ -99,29 +91,28 @@ $conn->close();
 </head>
 
 <body>
-    <div class="achterkantvlak"> </div>
-        <div class="bouwvlak">
-            INLOGGEN!!!!!!!!!!!!!!!!!!!!
-            <div class="inlogvlak">
-                <form method="post">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required />
-                    <br>
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required />
-                    <br>
-                    <input type="submit" value="Submit" />
-                </form>
-                <div class="login-result">
-                    <?php
-                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                        echo $loginResult;
-                    }
-                    ?>
-                </div>
+  
+    <div class="bouwvlak">
+        INLOGGEN
+        <div class="inlogvlak">
+            <form method="post">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required />
+                <br>
+                <input type="submit" value="Submit" />
+            </form>
+            <div class="login-result">
+                <?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    echo $loginResult;
+                }
+                ?>
             </div>
         </div>
-    
+    </div>
 </body>
 
 </html>
