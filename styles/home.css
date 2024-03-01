@@ -21,3 +21,33 @@ body, html {
     position: absolute;
 
 }
+
+.bc-bier-kaart {
+    background-color: aliceblue;
+    width: 250px;
+    height: 350px;
+    border-radius: 20px;
+    position: relative;
+    left: 18%;
+    box-shadow: 9px 5px 20px #6e6e6e;
+}
+
+.bc-kaart-name {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 20px;
+    text-transform: capitalize;
+    font-style: italic;
+    text-align: center;
+    position: relative;
+    margin-bottom: 0;
+}
+
+.bc-kaart-text {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: lighter;
+    position: relative;
+    font-variant: small-caps;
+    font-weight: 100;
+}
