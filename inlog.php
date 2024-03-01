@@ -95,7 +95,8 @@ $conn->close();
 <body>
 
     <div class="bouwvlak">
-        INLOGGEN
+        INLOGGEN 
+        <button onclick="{window.location.href = window.location.href.replace('inlog.php','pages/beer-home.php')}">terug</button>
         <div class="inlogvlak">
             <form method="post">
                 <br>
@@ -105,7 +106,7 @@ $conn->close();
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required />
                 <br> <br>
-                <button type="submit" id="submit">Submit</button>
+                <button style="border-radius: 10px; background-color:rgb(255, 255, 255)" type="submit" id="submit">Submit</button>
             </form>
             <div class="login-result">
                 <?php
