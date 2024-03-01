@@ -59,8 +59,9 @@ $conn->close();
             background-size: 100%;
             margin: 0;
         }
-        #achterkantvlak{
-           
+
+        #achterkantvlak {
+
             background-position: center;
             overflow: hidden;
             opacity: 0.5;
@@ -73,6 +74,7 @@ $conn->close();
             z-index: 1;
             position: absolute;
         }
+
         .bouwvlak {
             height: 25vh;
             width: 20vw;
