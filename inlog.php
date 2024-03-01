@@ -81,12 +81,14 @@ $conn->close();
             margin: auto;
             z-index: 3;
             position: absolute;
+            text-align: center;
         }
 
         .login-result {
             margin-top: 10px;
             color: red;
         }
+   
     </style>
 </head>
 
@@ -96,13 +98,14 @@ $conn->close();
         INLOGGEN
         <div class="inlogvlak">
             <form method="post">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required />
                 <br>
+                <label for="email">Email: </label>
+                <input type="email" id="email" name="email" required />
+                <br> <br>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required />
-                <br>
-                <input type="submit" value="Submit" />
+                <br> <br>
+                <button type="submit" id="submit">Submit</button>
             </form>
             <div class="login-result">
                 <?php
