@@ -28,8 +28,15 @@ body, html {
     height: 350px;
     border-radius: 20px;
     position: relative;
-    left: 18%;
+    left: 15%;
     box-shadow: 9px 5px 20px #6e6e6e;
+    margin-bottom: 40px;
+}
+.bc-beer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 77%;
 }
 
 .bc-kaart-name {
