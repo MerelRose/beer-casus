@@ -83,4 +83,4 @@
 <div style="left: 71%; position: absolute; top: 6%;"><button class="button glass clear-a" type="button">Page</button></div>
 
 
-<div style="left: 81%; position: absolute; top: 6%;"><button class="button glass clear-a" type="button">Login</button></div>
+<div style="left: 81%; position: absolute; top: 6%;"><a href="inlog.php"class="button glass clear-a" type="button">Login</a></div>

@@ -81,28 +81,32 @@ $conn->close();
             margin: auto;
             z-index: 3;
             position: absolute;
+            text-align: center;
         }
 
         .login-result {
             margin-top: 10px;
             color: red;
         }
+   
     </style>
 </head>
 
 <body>
-  
+
     <div class="bouwvlak">
-        INLOGGEN
+        INLOGGEN 
+        <button onclick="{window.location.href = window.location.href.replace('inlog.php','pages/beer-home.php')}">terug</button>
         <div class="inlogvlak">
             <form method="post">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required />
                 <br>
+                <label for="email">Email: </label>
+                <input type="email" id="email" name="email" required />
+                <br> <br>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required />
-                <br>
-                <input type="submit" value="Submit" />
+                <br> <br>
+                <button style="border-radius: 10px; background-color:rgb(255, 255, 255)" type="submit" id="submit">Submit</button>
             </form>
             <div class="login-result">
                 <?php
