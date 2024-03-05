@@ -64,7 +64,7 @@ $conn->close();
             height: 25vh;
             width: 20vw;
             border-radius: 25px;
-            background-color: rgb(255, 255, 255);
+            background-color: rgba(255, 255, 255, 0.8);
             text-align: center;
             padding-top: 5px;
             z-index: 2;
@@ -72,7 +72,7 @@ $conn->close();
         }
 
         .inlogvlak {
-            background-color: rgb(255, 255, 97);
+            background-color: rgba(255, 255, 97, 0.95);
             height: 23vh;
             width: 20vw;
             border-radius: 25px;
