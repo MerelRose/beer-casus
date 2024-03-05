@@ -3,26 +3,41 @@
 <head>
     <link rel="stylesheet" href="../styles/home.css">
     <style>
-        /* Add CSS styles for the star rating */
-        .bc-star-rating {
-            unicode-bidi: bidi-override;
-            direction: rtl;
-        }
-        .bc-star-rating > span {
-            display: inline-block;
-            position: relative;
-            width: 1.1em;
-        }
-        .bc-star-rating > span:hover:before,
-        .bc-star-rating > span:hover ~ span:before,
-        .bc-star-rating > input:hover:before,
-        .bc-star-rating > input:hover ~ span:before,
-        .bc-star-rating > input:checked ~ span:before,
-        .bc-star-rating > input:checked ~ span:before {
-            content: "\2605";
-            position: absolute;
-            color: gold;
-        }
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
     </style>
 </head>
 <body>
@@ -78,15 +93,15 @@
                 // Display star rating system
                 echo "<form method='post' action='".$_SERVER['PHP_SELF']."'>";
                 echo "<input type='hidden' name='beer_id' value='" . $row["id"] . "'>";
-                echo "<div class='bc-star-rating'>";
+                echo "<div class='bc-star-rating rate'>";
                 for ($i = 5; $i >= 1; $i--) {
                     echo "<input type='radio' id='rating" . $i . "' name='rating' value='" . $i . "' " . (hasRatedBeer($conn, $row["id"], $unique_id) ? "disabled" : "") . ">";
-                    echo "<label for='rating" . $i . "'><span>" . $i . "</span></label>";
-                }
+                    echo "<label title='text' for='rating" . $i . "'><span>" . $i . "</span></label>";
+                }   
                 echo "</div>";
                 echo "<button type='submit' name='rate' " . (hasRatedBeer($conn, $row["id"], $unique_id) ? "disabled" : "") . ">Rate</button>";
                 echo "</form>";
-
+                
                 // Display like button
                 echo "<form method='post' action='".$_SERVER['PHP_SELF']."'>";
                 echo "<input type='hidden' name='beer_id' value='" . $row["id"] . "'>";
