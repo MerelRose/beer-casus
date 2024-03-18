@@ -87,3 +87,13 @@ body, html {
     position: relative;
     text-align: center;
 }
+
+.bc-star-rating {
+    position: absolute;
+}
+
+.bc-rate {
+    position: absolute;
+    background-color: transparent;
+    border-radius: 10px;
+}

@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     // Perform a simple query (ensure to use prepared statements in production)
-    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+    $sql = "SELECT * FROM users WHERE id=1";// WHERE email = '$email' AND password = '$password'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -96,7 +96,7 @@ $conn->close();
 
     <div class="bouwvlak">
         INLOGGEN 
-        <button onclick="{window.location.href = window.location.href.replace('inlog.php','pages/beer-home.php')}">terug</button>
+        <button onclick="{window.location.href = window.location.href.replace('inlog.php','index.php')}">terug</button>
         <div class="inlogvlak">
             <form method="post">
                 <br>

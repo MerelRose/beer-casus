@@ -103,20 +103,20 @@
                 echo "<p class='bc-kaart-likes'>Likes: " . $row["like_count"] . "</p>";
 
 
-// Display star rating system
-echo "<form method='post' action='".$_SERVER['PHP_SELF']."'>";
-echo "<input type='hidden' name='beer_id' value='" . $row["id"] . "'>";
-echo "<div class='bc-star-rating rate'>";
-for ($i = 5; $i >= 1; $i--) {
-    $checked = (hasRatedBeer($conn, $row["id"], $unique_id) && $i == $average_rating) ? 'checked' : '';
-    $checkedClass = ($checked == 'checked') ? 'checked' : ''; // Add 'checked' class if the radio button is checked
-    echo "<label title='text' for='rating_" . $row["id"] . "_" . $i . "' class='$checkedClass'>";
-    echo "<input type='radio' id='rating_" . $row["id"] . "_" . $i . "' name='rating' value='" . $i . "' " . $checked . " " . (hasRatedBeer($conn, $row["id"], $unique_id) ? "disabled" : "") . ">";
-    echo "</label>";
-}
-echo "</div>";
-echo "<button type='submit' name='rate' " . (hasRatedBeer($conn, $row["id"], $unique_id) ? "disabled" : "") . ">Rate</button>";
-echo "</form>";
+                // Display star rating system
+                echo "<form method='post' action='".$_SERVER['PHP_SELF']."'>";
+                echo "<input type='hidden' name='beer_id' value='" . $row["id"] . "'>";
+                echo "<div class='bc-star-rating rate'>";
+                for ($i = 5; $i >= 1; $i--) {
+                    $checked = (hasRatedBeer($conn, $row["id"], $unique_id) && $i == $average_rating) ? 'checked' : '';
+                    $checkedClass = ($checked == 'checked') ? 'checked' : ''; // Add 'checked' class if the radio button is checked
+                    echo "<label title='text' for='rating_" . $row["id"] . "_" . $i . "' class='$checkedClass'>";
+                    echo "<input type='radio' id='rating_" . $row["id"] . "_" . $i . "' name='rating' value='" . $i . "' " . $checked . " " . (hasRatedBeer($conn, $row["id"], $unique_id) ? "disabled" : "") . ">";
+                    echo "</label>";
+                }
+                echo "</div>";
+                echo "<button class='bc-rate' type='submit' name='rate' " . (hasRatedBeer($conn, $row["id"], $unique_id) ? "disabled" : "") . ">Rate</button>";
+                echo "</form>";
 
                 
                 // Display like button
