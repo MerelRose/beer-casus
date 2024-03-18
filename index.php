@@ -1,6 +1,6 @@
 <?php 
 ob_start(); // Start output buffering
-$page = "beer-home";
+$page = "beerhome";
 if(isset($_GET["page"])) {
     $page = $_GET["page"];
 }
