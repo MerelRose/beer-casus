@@ -76,9 +76,9 @@
 </svg>
 </div>
 
-<div style="left: 31%; position: absolute; top: 6%;"><button class="button glass clear-a" type="button">Home</button></div>
-<div style="left: 41%; position: absolute; top: 6%;"><button class="button glass clear-a" type="button">Biertjes</button></div>
-<div style="left: 51%; position: absolute; top: 6%;"><button class="button glass clear-a" type="button">Page</button></div>
+<div style="left: 31%; position: absolute; top: 6%;"><a href="index.php?page=beerhome" class="button glass clear-a" type="button">Home</a></div>
+<div style="left: 41%; position: absolute; top: 6%;"><a href="index.php?page=beerhome" class="button glass clear-a" type="button">Biertjes</a></div>
+<div style="left: 51%; position: absolute; top: 6%;"><a href="index.php?page=summary" class="button glass clear-a" type="button">Summary</a></div>
 <div style="left: 61%; position: absolute; top: 6%;"><button class="button glass clear-a" type="button">Page</button></div>
 <div style="left: 71%; position: absolute; top: 6%;"><button class="button glass clear-a" type="button">Page</button></div>
 
