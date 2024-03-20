@@ -11,7 +11,7 @@ if(isset($_GET["page"])) {
 </head>
 <body>
     <?php include("beer-nav.php"); ?>
-    <div class="main">
+    <div>
         <?php include("pages/" .$page. ".php"); ?>
     </div>
 </body>

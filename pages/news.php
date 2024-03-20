@@ -9,7 +9,7 @@
 </head>
 <body>
 <img src="img/beer-background.png" alt="" class="bc-background">
-<div class="container">
+<div class="container2">
   <div class="blog-card spring-fever">
     <div class="title-content">
       <h3>The Oldest Recipe in History</h3>
@@ -78,7 +78,10 @@
   @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic);
 
   /* variables */
-  .container {
+  .container2 {
+    max-width: 80%;
+    left: 10%;
+    position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -106,22 +109,17 @@
     color: #DCE3E7;
   }
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
 
   .blog-card {
-    width: 350px;
-    height: 500px;
-    position: relative; /* Changed position to relative */
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    margin-bottom: 20px; /* Added margin for spacing */
-  }
+  width: 350px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+  text-align: center; /* Center the text */
+  margin-bottom: 20px; /* Added margin for spacing */
+}
 
   .blog-card .card-image {
   width: 100%;
@@ -196,12 +194,12 @@
   }
 
   .card-info {
-    width: 100%;
+    width: 80%;
     position: absolute;
     bottom: 100px;
     left: 0;
-    margin: 0 auto;
-    padding: 0 50px;
+    margin: 0;
+    padding: 0 40px;
     color: #DCE3E7;
     font-family: 'Droid Serif', serif;
     font-style: 16px;
