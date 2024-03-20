@@ -78,7 +78,7 @@
 
 <div class="nav-container">
     <a href="index.php?page=beerhome" class="button glass clear-a" type="button">Home</a>
-    <a href="index.php?page=beerlist" class="button glass clear-a" type="button">Biertjes</a>
+    <a href="index.php?page=beerlist" class="button glass clear-a" type="button">Beers</a>
     <a href="index.php?page=summary" class="button glass clear-a" type="button">Summary</a>
     <a href="index.php?page=news" class="button glass clear-a" type="button">News</a>
     <a href="inlog.php" class="button glass clear-a" type="button">Login</a>

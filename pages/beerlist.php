@@ -156,6 +156,7 @@ button.like {
     
             return true;
         }
+        
     
         // Check if the user has a unique identifier cookie
         $unique_id = isset($_COOKIE['unique_id']) ? $_COOKIE['unique_id'] : '';
