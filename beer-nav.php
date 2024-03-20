@@ -76,11 +76,31 @@
 </svg>
 </div>
 
-<div style="left: 31%; position: absolute; top: 6%;"><a href="index.php?page=beerhome" class="button glass clear-a" type="button">Home</a></div>
-<div style="left: 41%; position: absolute; top: 6%;"><a href="index.php?page=beerhome" class="button glass clear-a" type="button">Biertjes</a></div>
-<div style="left: 51%; position: absolute; top: 6%;"><a href="index.php?page=summary" class="button glass clear-a" type="button">Summary</a></div>
-<div style="left: 61%; position: absolute; top: 6%;"><a href="index.php?page=beercard" class="button glass clear-a" type="button">card</a></div>
-<div style="left: 71%; position: absolute; top: 6%;"><button class="button glass clear-a" type="button">Page</button></div>
+<div class="nav-container">
+    <a href="index.php?page=beerhome" class="button glass clear-a" type="button">Home</a>
+    <a href="index.php?page=beerlist" class="button glass clear-a" type="button">Biertjes</a>
+    <a href="index.php?page=summary" class="button glass clear-a" type="button">Summary</a>
+    <a href="index.php?page=news" class="button glass clear-a" type="button">News</a>
+    <a href="inlog.php" class="button glass clear-a" type="button">Login</a>
+</div>
 
+<style>
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 6%;
+    width: 80%;
+    left: 20%;
+}
 
-<div style="left: 81%; position: absolute; top: 6%;"><a href="inlog.php"class="button glass clear-a" type="button">Login</a></div>
+.nav-container a, .nav-container button {
+    flex: 1;
+    margin: 0 5px;
+}
+
+.nav-container a, .nav-container button {
+    text-align: center;
+    text-decoration: none;
+}
+</style>
