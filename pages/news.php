@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beer Site - News</title>
   <link rel="stylesheet" href="styles/news.css">
   <link rel="stylesheet" href="styles/home.css">
 </head>
 <body>
 <img src="img/beer-background.png" alt="" class="bc-background">
+<h2 class="bc-top5">Fun Facts</h2>
+
 <div class="container2">
   <div class="blog-card spring-fever">
     <div class="title-content">
