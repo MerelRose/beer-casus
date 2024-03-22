@@ -12,7 +12,7 @@
         include("db_conn.php");
 
         // Query to get the most liked beers
-        $sql_most_liked = "SELECT * FROM beers ORDER BY like_count DESC LIMIT 5";
+        $sql_most_liked = "SELECT * FROM beers ORDER BY like_count DESC LIMIT 10";
         $result_most_liked = $conn->query($sql_most_liked);
 
         if ($result_most_liked->num_rows > 0) {
@@ -45,7 +45,7 @@
     <div class="bc-beer-container">
         <?php 
         // Query to get the highest rated beers
-        $sql_highest_rated = "SELECT beers.*, AVG(ratings.rating) AS avg_rating FROM beers LEFT JOIN ratings ON beers.id = ratings.beer_id GROUP BY beers.id ORDER BY avg_rating DESC LIMIT 5";
+        $sql_highest_rated = "SELECT beers.*, AVG(ratings.rating) AS avg_rating FROM beers LEFT JOIN ratings ON beers.id = ratings.beer_id GROUP BY beers.id ORDER BY avg_rating DESC LIMIT 10";
         $result_highest_rated = $conn->query($sql_highest_rated);
 
         if ($result_highest_rated->num_rows > 0) {
