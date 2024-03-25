@@ -23,7 +23,6 @@
         <?php 
         include("db_conn.php");
 
-        // Query to get the most liked beers
         $sql_most_liked = "SELECT * FROM beers ORDER BY like_count DESC LIMIT 2";
         $result_most_liked = $conn->query($sql_most_liked);
 
@@ -36,7 +35,6 @@
                     echo "<h2>" . $row["name"] . "</h2>";
                     echo "</div>";
                 echo "<div class='course-info'>";
-                    // Display beer information
                     echo "<h6>Likes:" . $row["like_count"] ."</h6>";
                     echo "<h2>" . $row["brewer"] . "</h2>";
                     echo "<h6>Type: " . $row["type"] . "</h6>";

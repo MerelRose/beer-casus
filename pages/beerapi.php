@@ -1,15 +1,15 @@
 <style>
 .checked {
-    color: #ffc700; /* Color for checked stars */
+    color: #ffc700; 
 }
 
 .star {
-    font-size: 24px; /* Adjust font size as needed */
-    color: #ccc; /* Default color for uncolored stars */
+    font-size: 24px; 
+    color: #ccc; 
 }
 
 .colored-star {
-    color: #ffc700; /* Color for colored stars */
+    color: #ffc700; 
 }
 .rate {
     float: left;
@@ -97,26 +97,23 @@ button.like {
         function hasLikedBeer($conn, $beer_id, $unique_id) {
             $sql = "SELECT * FROM likes WHERE beer_id = $beer_id AND unique_id = '$unique_id'";
             $result = $conn->query($sql);
-            return $result->num_rows > 0; // Corrected to num_rows
+            return $result->num_rows > 0; 
         }
         
         function hasRatedBeer($conn, $beer_id, $unique_id) {
             $sql = "SELECT * FROM ratings WHERE beer_id = $beer_id AND unique_id = '$unique_id'";
             $result = $conn->query($sql);
-            return $result->num_rows > 0; // Corrected to num_rows
+            return $result->num_rows > 0; 
         }
         
 
-        // Check if the user has a unique identifier cookie
         $unique_id = isset($_COOKIE['unique_id']) ? $_COOKIE['unique_id'] : '';
 
-        // Query om alle bieren op te halen
         $sql = "SELECT * FROM beers";
         $result = $conn->query($sql);
 
 
         function likeBeer($conn, $beer_id, $unique_id) {
-            // Increment like count in the beers table
             $sql_increment = "UPDATE beers SET like_count = like_count + 1 WHERE id = $beer_id";
             $result_increment = $conn->query($sql_increment);
             if (!$result_increment) {
@@ -124,7 +121,6 @@ button.like {
                 return false;
             }
     
-            // Insert like record into the likes table
             $sql_insert = "INSERT INTO likes (beer_id, unique_id) VALUES ($beer_id, '$unique_id')";
             $result_insert = $conn->query($sql_insert);
             if (!$result_insert) {
@@ -136,7 +132,6 @@ button.like {
         }
     
         function dislikeBeer($conn, $beer_id, $unique_id) {
-            // Decrement like count in the beers table
             $sql_decrement = "UPDATE beers SET like_count = like_count - 1 WHERE id = $beer_id";
             $result_decrement = $conn->query($sql_decrement);
             if (!$result_decrement) {
@@ -144,7 +139,6 @@ button.like {
                 return false;
             }
     
-            // Delete like record from the likes table
             $sql_delete = "DELETE FROM likes WHERE beer_id = $beer_id AND unique_id = '$unique_id'";
             $result_delete = $conn->query($sql_delete);
             if (!$result_delete) {
@@ -156,16 +150,13 @@ button.like {
         }
         
     
-        // Check if the user has a unique identifier cookie
         $unique_id = isset($_COOKIE['unique_id']) ? $_COOKIE['unique_id'] : '';
     
-        // Handle like/dislike actions
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST['like'])) {
                 $beer_id = $_POST['beer_id'];
                 if (!hasLikedBeer($conn, $beer_id, $unique_id)) {
                     if (likeBeer($conn, $beer_id, $unique_id)) {
-                        // Successfully liked the beer
                         header("Location: ".$_SERVER['PHP_SELF']);
                         exit();
                     }
@@ -174,7 +165,6 @@ button.like {
                 $beer_id = $_POST['beer_id'];
                 if (hasLikedBeer($conn, $beer_id, $unique_id)) {
                     if (dislikeBeer($conn, $beer_id, $unique_id)) {
-                        // Successfully disliked the beer
                         header("Location: ".$_SERVER['PHP_SELF']);
                         exit();
                     }
@@ -182,12 +172,10 @@ button.like {
             }
         }
 
-        // Fetch beer data from the API endpoint
         $api_url = 'http://localhost:3000/api/beers';
         $api_response = file_get_contents($api_url);
         $beers = json_decode($api_response, true);
 
-        // Display beer information
         foreach ($beers as $beer) {
             $beer_id = $beer["id"];
             $sql_avg_rating = "SELECT AVG(rating) AS avg_rating FROM ratings WHERE beer_id = $beer_id";
@@ -202,7 +190,6 @@ button.like {
             echo "<h2>" . $beer["name"] . "</h2>";
             echo "</div>";
             echo "<div class='course-info'>";
-                   // Display like button
                    echo "<form method='post' action='".$_SERVER['PHP_SELF']."'>";
                    echo "<input type='hidden' name='beer_id' value='" . $beer["id"] . "'>";
                    if (!hasLikedBeer($conn, $beer["id"], $unique_id)) {
@@ -212,7 +199,6 @@ button.like {
                            </svg>
                            </button>";
                    } else {
-                       //echo "<p class='bc-like-msg'>You liked this beer!</p> <br>";
                        echo "<button class='dislike' type='submit' name='dislike'>
                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-hand-thumbs-down' viewBox='0 0 16 16'>
                                    <path d='M8.864 15.674c-.956.24-1.843-.484-1.908-1.42-.072-1.05-.23-2.015-.428-2.59-.125-.36-.479-1.012-1.04-1.638-.557-.624-1.282-1.179-2.131-1.41C2.685 8.432 2 7.85 2 7V3c0-.845.682-1.464 1.448-1.546 1.07-.113 1.564-.415 2.068-.723l.048-.029c.272-.166.578-.349.97-.484C6.931.08 7.395 0 8 0h3.5c.937 0 1.599.478 1.934 1.064.164.287.254.607.254.913 0 .152-.023.312-.077.464.201.262.38.577.488.9.11.33.172.762.004 1.15.069.13.12.268.159.403.077.27.113.567.113.856s-.036.586-.113.856c-.035.12-.08.244-.138.363.394.571.418 1.2.234 1.733-.206.592-.682 1.1-1.2 1.272-.847.283-1.803.276-2.516.211a10 10 0 0 1-.443-.05 9.36 9.36 0 0 1-.062 4.51c-.138.508-.55.848-1.012.964zM11.5 1H8c-.51 0-.863.068-1.14.163-.281.097-.506.229-.776.393l-.04.025c-.555.338-1.198.73-2.49.868-.333.035-.554.29-.554.55V7c0 .255.226.543.62.65 1.095.3 1.977.997 2.614 1.709.635.71 1.064 1.475 1.238 1.977.243.7.407 1.768.482 2.85.025.362.36.595.667.518l.262-.065c.16-.04.258-.144.288-.255a8.34 8.34 0 0 0-.145-4.726.5.5 0 0 1 .595-.643h.003l.014.004.058.013a9 9 0 0 0 1.036.157c.663.06 1.457.054 2.11-.163.175-.059.45-.301.57-.651.107-.308.087-.67-.266-1.021L12.793 7l.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581s-.027-.414-.075-.581c-.05-.174-.111-.273-.154-.315l-.353-.354.353-.354c.047-.047.109-.176.005-.488a2.2 2.2 0 0 0-.505-.804l-.353-.354.353-.354c.006-.005.041-.05.041-.17a.9.9 0 0 0-.121-.415C12.4 1.272 12.063 1 11.5 1'/>
@@ -220,20 +206,18 @@ button.like {
                            </button>";
                    }
                    echo "</form>";
-            // Display beer details
             echo "<h6>Likes: " . $beer["like_count"] . "</h6>";
             echo "<h2>" . $beer["brewer"] . "</h2>";
             echo "<h6>Type: " . $beer["type"] . "</h6>";
             echo "<h6>Yeast: " . $beer["yeast"] . "</h6>";
             echo "<h6>Percentage: " . ($beer["perc"] * 100) . "%</h6>";
             echo "<h6>Prijs: &euro;" . $beer["purchase_price"] . "</h6>";
-            // Display star rating system
             echo "<form method='post' action='".$_SERVER['PHP_SELF']."'>";
             echo "<input type='hidden' name='beer_id' value='" . $beer["id"] . "'>";
             echo "<div class='bc-star-rating rate'>";
             for ($i = 5; $i >= 1; $i--) {
                 $checked = (hasRatedBeer($conn, $beer["id"], $unique_id) && $i == $average_rating) ? 'checked' : '';
-                $checkedClass = ($checked == 'checked') ? 'checked' : ''; // Add 'checked' class if the radio button is checked
+                $checkedClass = ($checked == 'checked') ? 'checked' : '';
                 echo "<label title='text' for='rating_" . $beer["id"] . "_" . $i . "' class='$checkedClass'>";
                 echo "<input type='radio' id='rating_" . $beer["id"] . "_" . $i . "' name='rating' value='" . $i . "' " . $checked . " " . (hasRatedBeer($conn, $beer["id"], $unique_id) ? "disabled" : "") . ">";
                 echo "</label>";
@@ -246,33 +230,26 @@ button.like {
             echo "</div>";
             echo "<br>";
         }
-        // Handle rating submission
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['rate'])) {
             $beer_id = $_POST['beer_id'];
             $rating = $_POST['rating'];
 
-            // Check if the user has a unique identifier
             if (empty($unique_id)) {
                 $unique_id = generateUniqueId();
-                setcookie('unique_id', $unique_id, time() + (365 * 24 * 3600), '/'); // Cookie valid for 1 year
+                setcookie('unique_id', $unique_id, time() + (365 * 24 * 3600), '/');
             }
 
-            // Check if the user has already rated the beer
             if (hasRatedBeer($conn, $beer_id, $unique_id)) {
-                // Update the existing rating in the database
                 $sql_update = "UPDATE ratings SET rating = $rating WHERE beer_id = $beer_id AND unique_id = '$unique_id'";
                 if ($conn->query($sql_update) === TRUE) {
-                    // Refresh the page to update the ratings
                     header("Location: ".$_SERVER['PHP_SELF']);
                     exit();
                 } else {
                     echo "Error updating rating: " . $conn->error;
                 }
             } else {
-                // Insert the new rating into the database
                 $sql_insert = "INSERT INTO ratings (beer_id, unique_id, rating) VALUES ($beer_id, '$unique_id', $rating)";
                 if ($conn->query($sql_insert) === TRUE) {
-                    // Refresh the page to update the ratings
                     header("Location: ".$_SERVER['PHP_SELF']);
                     exit();
                 } else {

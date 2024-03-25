@@ -11,7 +11,6 @@
         <?php 
         include("db_conn.php");
 
-        // Query to get the most liked beers
         $sql_most_liked = "SELECT * FROM beers ORDER BY like_count DESC LIMIT 10";
         $result_most_liked = $conn->query($sql_most_liked);
 
@@ -24,7 +23,6 @@
                     echo "<h2>" . $row["name"] . "</h2>";
                     echo "</div>";
                 echo "<div class='course-info'>";
-                    // Display beer information
                     echo "<h6>Likes:" . $row["like_count"] ."</h6>";
                     echo "<h2>" . $row["brewer"] . "</h2>";
                     echo "<h6>Type: " . $row["type"] . "</h6>";
@@ -44,7 +42,6 @@
     <h2 class="bc-top5">Top 5 Rated Beers</h2>
     <div class="bc-beer-container">
         <?php 
-        // Query to get the highest rated beers
         $sql_highest_rated = "SELECT beers.*, AVG(ratings.rating) AS avg_rating FROM beers LEFT JOIN ratings ON beers.id = ratings.beer_id GROUP BY beers.id ORDER BY avg_rating DESC LIMIT 10";
         $result_highest_rated = $conn->query($sql_highest_rated);
 
@@ -57,7 +54,6 @@
                     echo "<h2>" . $row["name"] . "</h2>";
                     echo "</div>";
                 echo "<div class='course-info'>";
-                    // Display beer information
                     echo "<h6>Likes:" . $row["like_count"] ."</h6>";
                     echo "<h2>" . $row["brewer"] . "</h2>";
                     echo "<h6>Type: " . $row["type"] . "</h6>";

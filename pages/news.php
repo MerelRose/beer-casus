@@ -13,13 +13,13 @@
     <div class="title-content">
       <h3>The Oldest Recipe in History</h3>
       <hr />
-    </div><!-- /.title-content -->
+    </div>
     <div class="card-image">
       <img src="img/beer.png" alt="Beer">
-    </div><!-- /.card-image -->
+    </div>
     <div class="card-info">
       Beer has been enjoyed by humanity for millennia, with the oldest known recipe dating back over 5,000 years. Found inscribed on a Sumerian clay tablet, the recipe outlines the brewing process for a beer-like beverage made from barley.
-    </div><!-- /.card-info -->
+    </div>
     <div class="utility-info">
       <ul class="utility-list">
         <li class="date">03.8.2024</li>
@@ -33,13 +33,13 @@
     <div class="title-content">
       <h3>The Strongest Beer in the World</h3>
       <hr />
-    </div><!-- /.title-content -->
+    </div>
     <div class="card-image">
       <img src="img/beer.png" alt="Beer">
-    </div><!-- /.card-image -->
+    </div>
     <div class="card-info">
       For those who like their brews with a bit more kick, there's a beer out there that holds the title for the strongest beer in the world. Brewed by Scottish brewery Brewmeister, "Snake Venom" boasts an astonishing 67.5% alcohol by volume (ABV), making it stronger than many spirits.
-    </div><!-- /.card-info -->
+    </div>
     <div class="utility-info">
       <ul class="utility-list">
         <li class="date">03.12.2024</li>
@@ -53,13 +53,13 @@
     <div class="title-content">
       <h3>A Beer Wave</h3>
       <hr />
-    </div><!-- /.title-content -->
+    </div>
     <div class="card-image">
       <img src="img/beer.png" alt="Beer">
-    </div><!-- /.card-image -->
+    </div>
     <div class="card-info">
       In 1814, London experienced a bizarre and tragic event known as the "London Beer Flood." When a massive vat containing over 135,000 gallons of beer ruptured at the Meux and Company Brewery, it sent a tidal wave of beer rushing through the streets, causing widespread damage and claiming the lives of eight people.
-    </div><!-- /.card-info -->
+    </div>
     <div class="utility-info">
       <ul class="utility-list">
         <li class="date">03.20.2024</li>
@@ -76,7 +76,6 @@
   @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700);
   @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic);
 
-  /* variables */
   .container2 {
     max-width: 80%;
     left: 10%;
@@ -116,18 +115,18 @@
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
-  text-align: center; /* Center the text */
-  margin-bottom: 20px; /* Added margin for spacing */
+  text-align: center; 
+  margin-bottom: 20px;
 }
 
   .blog-card .card-image {
   width: 100%;
   height: 100%;
-  background-image: url('img/beer-background.png'); /* Background image */
-  background-size: cover; /* Cover the entire container */
-  background-position: center center; /* Center the image */
+  background-image: url('img/beer-background.png'); 
+  background-size: cover; 
+  background-position: center center;
   position: absolute;
-  z-index: -1; /* Set z-index to be behind other elements */
+  z-index: -1; 
 }
 
 

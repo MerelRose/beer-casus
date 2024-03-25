@@ -81,7 +81,7 @@
     <a href="index.php?page=beerlist" class="button glass clear-a" type="button">Beers</a>
     <a href="index.php?page=summary" class="button glass clear-a" type="button">Summary</a>
     <a href="index.php?page=news" class="button glass clear-a" type="button">News</a>
-    <a href="index.php?page=login" class="button glass clear-a" type="button">Login</a>
+    <a href="index.php?page=loginform" class="button glass clear-a" type="button">Login</a>
 </div>
 
 <style>
