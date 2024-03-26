@@ -6,7 +6,7 @@
 </head>
 <body>
 <img src="img/beer-background.png" alt="" class="bc-background">
-    <h2 class="bc-top5">Top 5 Liked Beers</h2>
+    <h2 class="bc-top5">Top 10 Liked Beers</h2>
     <div class="bc-beer-container">
         <?php 
         include("db_conn.php");
@@ -39,7 +39,7 @@
         ?>
     </div>
 
-    <h2 class="bc-top5">Top 5 Rated Beers</h2>
+    <h2 class="bc-top5">Top 10 Rated Beers</h2>
     <div class="bc-beer-container">
         <?php 
         $sql_highest_rated = "SELECT beers.*, AVG(ratings.rating) AS avg_rating FROM beers LEFT JOIN ratings ON beers.id = ratings.beer_id GROUP BY beers.id ORDER BY avg_rating DESC LIMIT 10";
