@@ -32,6 +32,23 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
+    // Query the database to fetch the user ID based on the email
+    $sql = "SELECT user_id FROM users WHERE email = '$email'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        // Fetch the user ID from the query result
+        $row = $result->fetch_assoc();
+        $userId = $row['user_id'];
+        echo "Logged in user ID from database: " . $userId;
+    } else {
+        echo "User not found in database";
+    }
+} else {
+    echo "User not logged in";
+}
+
 function generate_token() {
     return bin2hex(random_bytes(16));
 }
